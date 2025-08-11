@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: var(--border);
+  --color-background: var(--background);
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-card: var(--card);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+  --animate-meteor: meteor 5s linear infinite;
+
+  --animate-falling: falling 5s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes falling {
+  0% {
+      transform: translateX(0) translateY(0) rotate(0deg) ;
+      opacity: 1;
+      
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100vw) translateY(25vh) rotate(360deg) ;
+      opacity: 0;
+    }
+  }
+
+}
+
+@layer base {
+  :root {
+    --background: rgb(250, 241, 230);
+    --foreground: 222 47% 11%;
+
+    --card:rgb(253, 250, 246);
+
+    --primary: rgb(0, 144, 125);
+    --primary-foreground: rgb(250, 241, 230);
+
+    --border: rgb(0, 129, 112);
+  }
+
+  .dark {
+    --background: rgb(15, 15, 15);
+    --foreground: 213 31% 91%;
+
+    --card: rgb(35, 45, 63);
+
+    --primary: rgb(0, 129, 112);
+    --primary-foreground: rgb(15, 15, 15);
+
+    --border: rgb(0, 129, 112);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@utility container {
+  padding-inline: 2rem;
+  margin-inline: auto
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+}
+
+@utility circle {
+  width: 30vw;         
+  height: 30vw; 
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid rgb(0, 129, 112)
+}
+
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, var(--card), var(--card));
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+@utility button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+         hover:scale-105 active:scale-95;
+}
+
+
+@utility snowflake {
+  @apply absolute;
+}
+
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}

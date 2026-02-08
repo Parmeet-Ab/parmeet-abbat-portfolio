@@ -35,7 +35,7 @@ export const HomeSection = () => {
 
                 </div>
             </div>
-            <img src='test.jpg' className = 'mx-auto circle hidden md:block'/>
+            <img src='test3.jpg' className = 'mx-auto circle hidden md:block size-100'/>
             <div className = {cn("absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce",
                 isScrolled ? 'invisible' : 'flex'
             )}>

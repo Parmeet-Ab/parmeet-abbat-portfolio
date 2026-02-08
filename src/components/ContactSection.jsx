@@ -61,7 +61,7 @@ export const ContactSection = () => {
                                 </a>
                             </div>
                         </div>
-                        <img src = '/test.jpg' className = 'mx-auto circle block md:hidden mt-10 mb' />
+                        <img src = '/test3.jpg' className = 'mx-auto circle block md:hidden mt-10 mb' />
             </div>
         </section>
     )
